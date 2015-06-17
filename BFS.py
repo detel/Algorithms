@@ -11,6 +11,5 @@ def BFS(s,graph):
                     level[v] = i
                     parent[v] = u
                     next.append(v)
-                vertex = u
         frontier = next
         i += 1
