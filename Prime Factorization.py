@@ -29,7 +29,7 @@ def brent(N):
         return g
 
 def factorize(num):     #valid for all num<10^18
-        factors = [[1,1],[num,1]]
+        factors = [[1,1]]
         for i in xrange(2,1000000):
                 if num%i == 0:
                         count = 0
