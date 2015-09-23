@@ -1,4 +1,4 @@
-def quickSort(ar):
+def quickSort1(ar):
     if len(ar) < 2:
         return(ar)
     
@@ -9,7 +9,18 @@ def quickSort(ar):
     left, right = quickSort(left), quickSort(right)
     result = left + [ar[0]] + right
     
-    return result 
+    return result
+    
+def quickSort2(arr):
+    if not arr:
+        return []
+
+    pivots = [x for x in arr if x == arr[0]]
+    lesser = quickSort([x for x in arr if x < arr[0]])
+    greater = quickSort([x for x in arr if x > arr[0]])
+
+    return lesser + pivots + greater
+
 
 ar = map(int, raw_input().split())
-print quickSort(ar)
+print quickSort1(ar),quickSort2(ar) 
