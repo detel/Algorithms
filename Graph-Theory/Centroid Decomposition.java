@@ -20,12 +20,12 @@ public class XeniaAndTree {
         out = new PrintWriter(System.out);
         
         int n = in.nextInt(),
-              m = in.nextInt();
+            m = in.nextInt();
         graph = new ArrayList[n];
         for(int i = 0; i < n; ++i)  graph[i] = new ArrayList<Integer>();
         for(int i = 1; i < n; ++i) {
             int u = in.nextInt() - 1,
-                  v = in.nextInt() - 1;
+                v = in.nextInt() - 1;
             graph[u].add(v);
             graph[v].add(u);
         }
@@ -65,7 +65,7 @@ public class XeniaAndTree {
     public static int[] near;
     public static void update(int v) {
         int u = v,
-              lb = centroidTreeLevel[v];
+            lb = centroidTreeLevel[v];
         while(u != -1) {
             near[u] = Math.min(near[u], dist[lb][v]);
             u = centroidTreeParent[u];
@@ -75,8 +75,8 @@ public class XeniaAndTree {
     
     public static int query(int v) {
         int u = v,
-              lb = centroidTreeLevel[v],
-              ans = Integer.MAX_VALUE;
+            lb = centroidTreeLevel[v],
+            ans = Integer.MAX_VALUE;
         while(u != -1) {
             ans = Math.min(ans, near[u] + dist[lb][v]);
             u = centroidTreeParent[u];
